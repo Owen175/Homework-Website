@@ -1,10 +1,10 @@
 from pydantic import BaseSettings
 
-class Config(BaseSettings):
+class Settings(BaseSettings):
     sqlAlchemyLink: str
 
     class Config:
         env_file = '.env'
 
 
-config = Config()
+config = Settings()

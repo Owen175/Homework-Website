@@ -3,9 +3,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from .config import config
 
-SQLALCHEMY_DATABASE_URL = settings.sqlAlchemyURL
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
-
+SQLALCHEMY_DATABASE_LINK = config.sqlAlchemyLink
+engine = create_engine(SQLALCHEMY_DATABASE_LINK)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
@@ -16,3 +15,4 @@ def get_db():
         yield db
     finally:
         db.close()
+
